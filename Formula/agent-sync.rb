@@ -1,9 +1,9 @@
 class AgentSync < Formula
   desc "Unify AGENTS.md/CLAUDE.md/GEMINI.md/CODEX.md via symlinks"
-  homepage "https://github.com/ike/agent-sync"
+  homepage "https://github.com/SeongIkKim/agent-sync"
   license "MIT"
 
-  head "https://github.com/ike/agent-sync.git", branch: "main"
+  head "https://github.com/SeongIkKim/agent-sync.git", branch: "main"
 
   def install
     bin.install "scripts/bootstrap-agents.sh" => "agent-sync-bootstrap"

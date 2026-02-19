@@ -34,13 +34,13 @@ agent-sync-check /path/to/project
 Option A: install directly from formula URL
 
 ```bash
-brew install --HEAD https://raw.githubusercontent.com/ike/agent-sync/main/Formula/agent-sync.rb
+brew install --HEAD https://raw.githubusercontent.com/SeongIkKim/agent-sync/main/Formula/agent-sync.rb
 ```
 
 Option B: tap then install
 
 ```bash
-brew tap ike/agent-sync https://github.com/ike/agent-sync
+brew tap SeongIkKim/agent-sync https://github.com/SeongIkKim/agent-sync
 brew install --HEAD agent-sync
 ```
 
