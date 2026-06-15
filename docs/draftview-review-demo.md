@@ -47,6 +47,32 @@ func (s *Suggester) complete(ctx context.Context, q Query) (Response, error) {
 }
 ```
 
+## 5b. Review Flow (mermaid)
+
+```mermaid
+flowchart TD
+    A[Reviewer opens PR Files changed] --> B{Click Review rendered}
+    B --> C[Dedicated full-page render]
+    C --> D[Select text in rendered doc]
+    D --> E{Target line in diff?}
+    E -- Yes --> F[Inline review comment via REST]
+    E -- No --> G[File-level comment fallback]
+    F --> H[Comment visible on PR]
+    G --> H
+```
+
+```mermaid
+sequenceDiagram
+    actor R as Reviewer
+    participant X as Extension
+    participant GH as GitHub API
+    R->>X: Select sentence + comment
+    X->>GH: POST pulls/{n}/comments (line, side)
+    GH-->>X: 201 Created (or 422)
+    X->>GH: fallback subject_type=file (on 422)
+    X-->>R: Toast with comment link
+```
+
 ## 6. Open Questions
 
 1. Do rendered comments survive a force-push / rebase of the PR branch?
